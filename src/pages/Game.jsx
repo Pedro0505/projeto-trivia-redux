@@ -16,8 +16,16 @@ class Game extends React.Component {
     this.handleAnswer = this.handleAnswer.bind(this);
   }
 
-  handleAnswer() {
-    this.setState({ isClicked: true });
+  handleAnswer({ target }) {
+    this.setState({ isClicked: true }, () => {
+      const elementCorrect = document.querySelector('.correct').textContent;
+      if (elementCorrect === target.textContent) {
+        console.log('correct answer');
+        const state = JSON.parse(localStorage.getItem('state'));
+        state.score += 1;
+        localStorage.setItem('state', JSON.stringify(state));
+      }
+    });
   }
 
   renderQuestion({ question,
