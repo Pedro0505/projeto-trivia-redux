@@ -22,7 +22,7 @@ class Game extends React.Component {
       if (elementCorrect === target.textContent) {
         console.log('correct answer');
         const state = JSON.parse(localStorage.getItem('state'));
-        state.score += 1;
+        state.player.score += 1;
         localStorage.setItem('state', JSON.stringify(state));
       }
     });

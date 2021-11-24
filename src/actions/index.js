@@ -4,10 +4,12 @@ async function savePlayer(email, name) {
   const hash = MD5(email).toString();
   const gravatarEmail = `https://www.gravatar.com/avatar/${hash}`;
   const player = {
-    name,
-    gravatarEmail,
-    score: 0,
-    assertions: 0,
+    player: {
+      name,
+      gravatarEmail,
+      score: 0,
+      assertions: 0,
+    },
   };
   localStorage.setItem('state', JSON.stringify(player));
 }
