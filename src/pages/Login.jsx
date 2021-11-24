@@ -1,6 +1,8 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { MD5 } from 'crypto-js';
+import { connect } from 'react-redux';
 import actions from '../actions';
 
 class Login extends React.Component {
@@ -21,7 +23,8 @@ class Login extends React.Component {
 
   handleSubmit() {
     const { email, name } = this.state;
-    actions.fetchTriviaToken();
+    const { fetchTriviaToken: fetchTrivia } = this.props;
+    fetchTrivia();
     actions.savePlayer(email, name);
   }
 
@@ -70,4 +73,12 @@ class Login extends React.Component {
   }
 }
 
-export default Login;
+Login.propTypes = {
+  fetchTriviaToken: PropTypes.func.isRequired,
+};
+
+const mapDispatchToProps = (dispatch) => ({
+  fetchTriviaToken: () => dispatch(actions.fetchTriviaToken()),
+});
+
+export default connect(null, mapDispatchToProps)(Login);

@@ -6,8 +6,10 @@ class Settings extends React.Component {
     console.log(state);
     return (
       <div>
-        <h1 data-testid="settings-title">{state.name}</h1>
-        <img src={ state.gravatarEmail} alt="" />
+        <header>
+          <h1 data-testid="settings-title">{state.name}</h1>
+          <img src={ state.gravatarEmail } alt="" />
+        </header>
       </div>
     );
   }
