@@ -1,11 +1,5 @@
 import { MD5 } from 'crypto-js';
 
-async function fetchTriviaToken() {
-  const response = await fetch('https://opentdb.com/api_token.php?command=request');
-  const data = await response.json();
-  localStorage.setItem('token', data.token);
-}
-
 async function savePlayer(email, name) {
   const hash = MD5(email).toString();
   const gravatarEmail = `https://www.gravatar.com/avatar/${hash}`;
@@ -26,6 +20,17 @@ function fetchTriviaQuestions() {
     const response = await fetch(`https://opentdb.com/api.php?amount=5&token=${token}`);
     const data = await response.json();
     dispatch(saveQuestions(data.results));
+  };
+}
+
+function fetchTriviaToken() {
+  return async (dispatch) => {
+    const response = await fetch('https://opentdb.com/api_token.php?command=request');
+    const data = await response.json();
+    localStorage.setItem('token', data.token);
+    const questions = await fetch(`https://opentdb.com/api.php?amount=5&token=${data.token}`);
+    const fetchQuestions = await questions.json();
+    dispatch(saveQuestions(fetchQuestions.results));
   };
 }
 
