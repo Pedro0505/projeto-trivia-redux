@@ -10,10 +10,30 @@ class Game extends React.Component {
 
     this.state = {
       isClicked: false,
+      isDisabled: false,
+      timer: 30,
     };
 
     this.renderQuestion = this.renderQuestion.bind(this);
     this.handleAnswer = this.handleAnswer.bind(this);
+    this.timer = this.timer.bind(this);
+  }
+
+  componentDidMount() {
+    this.timer();
+  }
+
+  timer() {
+    const oneSecond = 1000;
+    this.decrementTime = setInterval(() => {
+      const { timer } = this.state;
+      if (!timer) {
+        clearInterval(this.decrementTime);
+        this.setState({ isDisabled: true });
+      } else {
+        this.setState({ timer: timer - 1 });
+      }
+    }, oneSecond);
   }
 
   handleAnswer({ target }) {
@@ -30,7 +50,7 @@ class Game extends React.Component {
 
   renderQuestion({ question,
     correct_answer: correctAnswer, incorrect_answers: incorrectAnswers, category }) {
-    const { isClicked } = this.state;
+    const { isClicked, isDisabled } = this.state;
     return (
       <div>
         <h3 data-testid="question-text">{question}</h3>
@@ -47,6 +67,7 @@ class Game extends React.Component {
                 correctAnswer === option ? 'correct-answer' : `wrong-answer-${index}`
               }
               onClick={ this.handleAnswer }
+              disabled={ isDisabled }
             >
               {option}
             </button>
@@ -58,6 +79,7 @@ class Game extends React.Component {
 
   render() {
     const { questions } = this.props;
+    const { timer } = this.state;
     const state = JSON.parse(localStorage.getItem('state'));
     return (
       <div>
@@ -65,10 +87,16 @@ class Game extends React.Component {
           <h1 data-testid="header-player-name">{state.name}</h1>
           <h3 data-testid="header-score">0</h3>
           <img data-testid="header-profile-picture" src={ state.gravatarEmail } alt="" />
+        </header>
+        <main>
           {
             (questions.length) && this.renderQuestion(questions[0])
           }
-        </header>
+        </main>
+        <p>
+          Timer:
+          <span>{timer}</span>
+        </p>
       </div>
     );
   }
