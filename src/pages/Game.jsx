@@ -2,20 +2,27 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
 import actions from '../actions';
+import '../Game.css';
 
 class Game extends React.Component {
   constructor() {
     super();
+
+    this.state = {
+      isClicked: false,
+    };
+
     this.renderQuestion = this.renderQuestion.bind(this);
+    this.handleAnswer = this.handleAnswer.bind(this);
   }
 
-  /*   componentDidMount() {
-      const { fetchTriviaQuestions } = this.props;
-      fetchTriviaQuestions();
-    } */
+  handleAnswer() {
+    this.setState({ isClicked: true });
+  }
 
   renderQuestion({ question,
     correct_answer: correctAnswer, incorrect_answers: incorrectAnswers, category }) {
+    const { isClicked } = this.state;
     return (
       <div>
         <h3 data-testid="question-text">{question}</h3>
@@ -23,11 +30,15 @@ class Game extends React.Component {
         {
           [...incorrectAnswers, correctAnswer].map((option, index) => (
             <button
+              className={ (isClicked) && ((
+                correctAnswer === option) ? 'correct' : 'wrong') }
               type="button"
               key={ option }
+              id={ correctAnswer === option ? 'correct-answer' : `wrong-answer-${index}` }
               data-testid={
                 correctAnswer === option ? 'correct-answer' : `wrong-answer-${index}`
               }
+              onClick={ this.handleAnswer }
             >
               {option}
             </button>
@@ -39,7 +50,6 @@ class Game extends React.Component {
 
   render() {
     const { questions } = this.props;
-    console.log(questions);
     const state = JSON.parse(localStorage.getItem('state'));
     return (
       <div>
@@ -57,7 +67,6 @@ class Game extends React.Component {
 }
 
 Game.propTypes = {
-  // fetchTriviaQuestions: PropTypes.func.isRequired,
   questions: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
