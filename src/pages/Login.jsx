@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { MD5 } from 'crypto-js';
 import { connect } from 'react-redux';
 import actions from '../actions';
 
@@ -30,7 +29,6 @@ class Login extends React.Component {
 
   render() {
     const { name, email } = this.state;
-    console.log(MD5(email).toString());
     const validEmail = new RegExp(/[\w\d]+@[\w\d]+[.]com+/);
     return (
       <div>
