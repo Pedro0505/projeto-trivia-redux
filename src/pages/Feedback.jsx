@@ -28,6 +28,8 @@ class Feedback extends React.Component {
           />
         </header>
         { this.message(state.player.score) }
+        <p data-testid="feedback-total-score">{ state.player.score }</p>
+        <p data-testid="feedback-total-question">{ state.player.assertions }</p>
         <Link
           to="/ranking"
         >

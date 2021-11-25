@@ -53,6 +53,7 @@ class Game extends React.Component {
       if (elementCorrect === target.textContent) {
         const state = JSON.parse(localStorage.getItem('state'));
         state.player.score += 1;
+        state.player.assertions += 1;
         localStorage.setItem('state', JSON.stringify(state));
       }
     });
