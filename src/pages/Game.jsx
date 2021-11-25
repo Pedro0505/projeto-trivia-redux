@@ -55,7 +55,8 @@ class Game extends React.Component {
       }
       return this.setState({ lastQuestion: true });
     }
-    this.setState({ index: (index + 1), isClicked: false, timer: 30 }, this.timer);
+    this.setState({
+      index: (index + 1), isClicked: false, timer: 30, isDisabled: false }, this.timer);
   }
 
   handleAnswer({ target }) {
@@ -79,7 +80,7 @@ class Game extends React.Component {
         <h3 data-testid="question-text">{question}</h3>
         <h3 data-testid="question-category">{category}</h3>
         {
-          [...incorrectAnswers, correctAnswer].map((option, index) => (
+          [...incorrectAnswers, correctAnswer].sort().map((option, index) => (
             <button
               className={ (isClicked) && ((
                 correctAnswer === option) ? 'correct' : 'wrong') }
