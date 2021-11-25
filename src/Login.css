@@ -1,0 +1,60 @@
+.main-content {
+  align-items: center;
+  background-color: #242424;
+  background-image: url('./pages/galaxy.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+  width: 100vw;
+}
+
+.image-container {
+  height: 400px;
+  width: 400px;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  height: 90px;
+  justify-content: space-between;
+}
+
+input {
+  background-color: white;
+  border-radius: 5px;
+  height: 34px;
+  width: 262px;
+}
+
+a {
+  text-decoration: none;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 10px;
+  width: 270px;
+}
+
+.btn-container button {
+  background-color: #6c63ff;
+  border: unset;
+  border-radius: 5px;
+  color: #e6e6e6;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 700;
+  height: 31px;
+  text-align: center;
+  width: 127px;
+}
+
+.btn-container button:disabled {
+  background-color: rgba(128, 128, 128, 0.7);
+  cursor: default;
+}

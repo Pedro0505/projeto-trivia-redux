@@ -3,6 +3,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import actions from '../actions';
+import celular from './celular.svg';
+import '../Login.css';
 
 class Login extends React.Component {
   constructor() {
@@ -31,40 +33,47 @@ class Login extends React.Component {
     const { name, email } = this.state;
     const validEmail = new RegExp(/[\w\d]+@[\w\d]+[.]com+/);
     return (
-      <div>
-        <input
-          onChange={ this.handle }
-          value={ name }
-          name="name"
-          type="text"
-          data-testid="input-player-name"
-        />
-        <input
-          onChange={ this.handle }
-          value={ email }
-          name="email"
-          type="text"
-          data-testid="input-gravatar-email"
-        />
-        <Link to="/game">
-          <button
-            type="button"
-            disabled={ !(name && validEmail.test(email)) }
-            data-testid="btn-play"
-            onClick={ this.handleSubmit }
-          >
-            Jogar
-          </button>
-        </Link>
-        <Link to="/settings">
-          <button
-            type="button"
-            data-testid="btn-settings"
-            onClick={ this.handleSubmit }
-          >
-            Configurações
-          </button>
-        </Link>
+      <div className="main-content">
+        <img className="image-container" src={ celular } alt="celular" />
+        <div className="input-container">
+          <input
+            onChange={ this.handle }
+            value={ name }
+            name="name"
+            type="text"
+            data-testid="input-player-name"
+            placeholder="Nome"
+          />
+          <input
+            onChange={ this.handle }
+            value={ email }
+            name="email"
+            type="text"
+            data-testid="input-gravatar-email"
+            placeholder="Email"
+          />
+        </div>
+        <div className="btn-container">
+          <Link to="/settings">
+            <button
+              type="button"
+              data-testid="btn-settings"
+              onClick={ this.handleSubmit }
+            >
+              Configurações
+            </button>
+          </Link>
+          <Link to="/game">
+            <button
+              type="button"
+              disabled={ !(name && validEmail.test(email)) }
+              data-testid="btn-play"
+              onClick={ this.handleSubmit }
+            >
+              Jogar
+            </button>
+          </Link>
+        </div>
       </div>
     );
   }
