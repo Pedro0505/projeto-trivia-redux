@@ -7,8 +7,8 @@ class Settings extends React.Component {
     return (
       <div>
         <header>
-          <h1 data-testid="settings-title">{state.name}</h1>
-          <img src={ state.gravatarEmail } alt="" />
+          <h1 data-testid="settings-title">{state.player.name}</h1>
+          <img src={ state.player.gravatarEmail } alt="avatar" />
         </header>
       </div>
     );

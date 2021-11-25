@@ -59,7 +59,6 @@ class Login extends React.Component {
         <Link to="/settings">
           <button
             type="button"
-            // disabled={ !(name && email) }
             data-testid="btn-settings"
             onClick={ this.handleSubmit }
           >
