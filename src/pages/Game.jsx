@@ -43,7 +43,18 @@ class Game extends React.Component {
   nextQuestion() {
     const { index } = this.state;
     const limit = 4;
-    if (index === limit) return this.setState({ lastQuestion: true });
+    if (index === limit) {
+      const ranking = JSON.parse(localStorage.getItem('ranking'));
+      const { player } = JSON.parse(localStorage.getItem('state'));
+      if (!ranking) {
+        const array = [player];
+        localStorage.setItem('ranking', JSON.stringify(array));
+      } else {
+        ranking.push(player);
+        localStorage.setItem('ranking', JSON.stringify(ranking));
+      }
+      return this.setState({ lastQuestion: true });
+    }
     this.setState({ index: (index + 1), isClicked: false, timer: 30 }, this.timer);
   }
 
