@@ -11,6 +11,7 @@ class Feedback extends React.Component {
           <h3 data-testid="header-score">0</h3>
           <img data-testid="header-profile-picture" src={ state.gravatarEmail } alt="" />
         </header>
+        <h1 data-testid="feedback-text"> FeedBack </h1>
       </div>
     );
   }
