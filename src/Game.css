@@ -1,7 +1,79 @@
 .wrong {
+  background-color: red;
   border: 3px solid red;
 }
 
 .correct {
+  background-color: rgb(6, 240, 15);
   border: 3px solid rgb(6, 240, 15);
+}
+
+.tablet-div {
+  background-image: url('./pages/tablet.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  height: 600px;
+  position: relative;
+  width: 725px;
+}
+
+.main-content p {
+  position: absolute;
+  right: 220px;
+  top: 30px;
+}
+
+.main-content p span {
+  font-size: 30px;
+  font-weight: 700;
+}
+
+main {
+  left: 180px;
+  position: absolute;
+  top: 150px;
+  width: 300px;
+}
+
+main h3 {
+  text-align: center;
+  width: 300px;
+}
+
+.loading {
+  left: 120px;
+  position: absolute;
+  text-align: center;
+}
+
+.answer-container {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 300px;
+}
+
+.answer-container button {
+  border-radius: 5px;
+  cursor: pointer;
+  height: 75px;
+  margin: 5px;
+  width: 130px;
+}
+
+.button-next {
+  background-color: #6c63ff;
+  border: unset;
+  border-radius: 5px;
+  color: #e6e6e6;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 700;
+  height: 33px;
+  left: 195px;
+  position: absolute;
+  top: 490px;
+  width: 270px;
 }

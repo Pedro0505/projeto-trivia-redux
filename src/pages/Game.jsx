@@ -77,26 +77,30 @@ class Game extends React.Component {
     const { isClicked, isDisabled } = this.state;
     return (
       <div>
-        <h3 data-testid="question-text">{question}</h3>
         <h3 data-testid="question-category">{category}</h3>
-        {
-          [...incorrectAnswers, correctAnswer].sort().map((option, index) => (
-            <button
-              className={ (isClicked) && ((
-                correctAnswer === option) ? 'correct' : 'wrong') }
-              type="button"
-              key={ option }
-              id={ correctAnswer === option ? 'correct-answer' : `wrong-answer-${index}` }
-              data-testid={
-                correctAnswer === option ? 'correct-answer' : `wrong-answer-${index}`
-              }
-              onClick={ this.handleAnswer }
-              disabled={ isDisabled }
-            >
-              {option}
-            </button>
-          ))
-        }
+        <h3 data-testid="question-text">{question}</h3>
+        <div className="answer-container">
+          {
+            [...incorrectAnswers, correctAnswer].sort().map((option, index) => (
+              <button
+                key={ index }
+                className={ (isClicked) && ((
+                  correctAnswer === option) ? 'correct' : 'wrong') }
+                type="button"
+                id={
+                  correctAnswer === option ? 'correct-answer' : `wrong-answer-${index}`
+                }
+                data-testid={
+                  correctAnswer === option ? 'correct-answer' : `wrong-answer-${index}`
+                }
+                onClick={ this.handleAnswer }
+                disabled={ isDisabled }
+              >
+                {option}
+              </button>
+            ))
+          }
+        </div>
       </div>
     );
   }
@@ -106,26 +110,29 @@ class Game extends React.Component {
     const { timer, isClicked, index, lastQuestion } = this.state;
     if (lastQuestion) return <Redirect to="/feedback" />;
     return (
-      <div>
-        <MainHeader />
-        <main>
-          {
-            (questions.length) && this.renderQuestion(questions[index])
-          }
-        </main>
-        <p>
-          Timer:
-          <span>{timer}</span>
-        </p>
-        { isClicked && (
-          <button
-            data-testid="btn-next"
-            type="button"
-            onClick={ this.nextQuestion }
-          >
-            Próxima
-          </button>
-        )}
+      <div className="main-content">
+        <div className="tablet-div">
+          <MainHeader />
+          <main>
+            {
+              (questions.length) ? this.renderQuestion(questions[index]) : (
+                <p className="loading">Loading...</p>)
+            }
+          </main>
+          <p>
+            <span>{timer}</span>
+          </p>
+          { isClicked && (
+            <button
+              className="button-next"
+              data-testid="btn-next"
+              type="button"
+              onClick={ this.nextQuestion }
+            >
+              Próxima
+            </button>
+          )}
+        </div>
       </div>
     );
   }
