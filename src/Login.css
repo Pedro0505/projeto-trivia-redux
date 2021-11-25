@@ -30,6 +30,10 @@ input {
   width: 262px;
 }
 
+input::placeholder {
+  text-align: center;
+}
+
 a {
   text-decoration: none;
 }

@@ -42,7 +42,7 @@ class Login extends React.Component {
             name="name"
             type="text"
             data-testid="input-player-name"
-            placeholder="Nome"
+            placeholder="Digite seu nome..."
           />
           <input
             onChange={ this.handle }
@@ -50,7 +50,7 @@ class Login extends React.Component {
             name="email"
             type="text"
             data-testid="input-gravatar-email"
-            placeholder="Email"
+            placeholder="Digite seu email..."
           />
         </div>
         <div className="btn-container">
