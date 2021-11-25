@@ -3,6 +3,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router';
 import actions from '../actions';
+import MainHeader from '../components/MainHeader';
 import '../Game.css';
 
 class Game extends React.Component {
@@ -50,12 +51,12 @@ class Game extends React.Component {
     clearInterval(this.decrementTime);
     this.setState({ isClicked: true }, () => {
       const elementCorrect = document.querySelector('.correct').textContent;
+      const state = JSON.parse(localStorage.getItem('state'));
       if (elementCorrect === target.textContent) {
-        const state = JSON.parse(localStorage.getItem('state'));
         state.player.score += 1;
-        state.player.assertions += 1;
-        localStorage.setItem('state', JSON.stringify(state));
       }
+      state.player.assertions += 1;
+      localStorage.setItem('state', JSON.stringify(state));
     });
   }
 
@@ -91,15 +92,10 @@ class Game extends React.Component {
   render() {
     const { questions } = this.props;
     const { timer, isClicked, index, lastQuestion } = this.state;
-    const state = JSON.parse(localStorage.getItem('state'));
     if (lastQuestion) return <Redirect to="/feedback" />;
     return (
       <div>
-        <header>
-          <h1 data-testid="header-player-name">{state.player.name}</h1>
-          <h3 data-testid="header-score">0</h3>
-          <img data-testid="header-profile-picture" src={ state.gravatarEmail } alt="" />
-        </header>
+        <MainHeader />
         <main>
           {
             (questions.length) && this.renderQuestion(questions[index])

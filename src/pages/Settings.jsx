@@ -2,13 +2,12 @@ import React from 'react';
 
 class Settings extends React.Component {
   render() {
-    const state = JSON.parse(localStorage.getItem('state'));
-    console.log(state);
+    const { player } = JSON.parse(localStorage.getItem('state'));
     return (
       <div>
         <header>
-          <h1 data-testid="settings-title">{state.player.name}</h1>
-          <img src={ state.player.gravatarEmail } alt="avatar" />
+          <h1 data-testid="settings-title">{player.name}</h1>
+          <img src={ player.gravatarEmail } alt="avatar" />
         </header>
       </div>
     );

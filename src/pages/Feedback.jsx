@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import MainHeader from '../components/MainHeader';
 
 class Feedback extends React.Component {
   constructor() {
@@ -15,21 +16,13 @@ class Feedback extends React.Component {
   }
 
   render() {
-    const state = JSON.parse(localStorage.getItem('state'));
+    const { player } = JSON.parse(localStorage.getItem('state'));
     return (
       <div>
-        <header>
-          <h1 data-testid="header-player-name">{state.player.name}</h1>
-          <h3 data-testid="header-score">{ state.player.score }</h3>
-          <img
-            data-testid="header-profile-picture"
-            src={ state.player.gravatarEmail }
-            alt=""
-          />
-        </header>
-        { this.message(state.player.score) }
-        <p data-testid="feedback-total-score">{ state.player.score }</p>
-        <p data-testid="feedback-total-question">{ state.player.assertions }</p>
+        <MainHeader />
+        { this.message(player.score) }
+        <p data-testid="feedback-total-score">{ player.score }</p>
+        <p data-testid="feedback-total-question">{ player.assertions }</p>
         <Link
           to="/ranking"
         >
