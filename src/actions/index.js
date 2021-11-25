@@ -16,15 +16,6 @@ async function savePlayer(email, name) {
 
 const saveQuestions = (state) => ({ type: '@QUIZ/SAVEQUESTION', state });
 
-function fetchTriviaQuestions() {
-  return async (dispatch) => {
-    const token = localStorage.getItem('token');
-    const response = await fetch(`https://opentdb.com/api.php?amount=5&token=${token}`);
-    const data = await response.json();
-    dispatch(saveQuestions(data.results));
-  };
-}
-
 function fetchTriviaToken() {
   return async (dispatch) => {
     const response = await fetch('https://opentdb.com/api_token.php?command=request');
@@ -36,7 +27,7 @@ function fetchTriviaToken() {
   };
 }
 
-const actions = { fetchTriviaToken, fetchTriviaQuestions, savePlayer };
+const actions = { fetchTriviaToken, savePlayer };
 
 export default actions;
 
