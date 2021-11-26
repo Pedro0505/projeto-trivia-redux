@@ -42,7 +42,7 @@ main h3 {
 }
 
 .loading {
-  animation: spin infinite 0.9s linear;
+  animation: spin infinite 1.5s linear;
   left: 100px;
   position: absolute;
   text-align: center;
