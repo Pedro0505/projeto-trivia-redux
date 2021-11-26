@@ -20,7 +20,6 @@ class Feedback extends React.Component {
     const { player } = JSON.parse(localStorage.getItem('state'));
     return (
       <div className="feedback-content">
-        { this.message(player.score) }
         <div className="score-container">
           <p data-testid="feedback-total-score">{ `Pontuação: ${player.score}` }</p>
           <p data-testid="feedback-total-question">{ `Acertos: ${player.assertions}` }</p>

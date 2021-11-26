@@ -16,11 +16,11 @@
   display: flex;
   flex-basis: 500px;
   flex-direction: column;
-  height: 192px;
+  height: 210px;
   justify-content: space-between;
-  left: 610px;
+  left: 660px;
   position: absolute;
-  top: 140px;
+  top: 105px;
 }
 
 .score-container p {
@@ -40,14 +40,15 @@
   width: 200px;
 }
 
+.btn-feedback {
+  display: flex;
+  flex-direction: column;
+  left: 570px;
+  position: absolute;
+  top: 400px;
+}
+
 .btn-feedback button {
   margin: 10px;
 }
 
-.btn-feedback {
-  display: flex;
-  flex-direction: column;
-  left: 540px;
-  position: absolute;
-  top: 400px;
-}

@@ -1,0 +1,45 @@
+.ranking-content {
+  background-attachment: fixed;
+  background-color: #242424;
+  background-image: url('./pages/ranking.svg');
+  background-position: 50% 100%;
+  background-repeat: no-repeat;
+  background-size: 1000px;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+  position: relative;
+  width: 100vw;
+}
+
+.position-container {
+  left: 490px;
+  position: absolute;
+  top: 203px;
+}
+
+.ranking-container {
+  align-items: center;
+  border-radius: 50px;
+  display: flex;
+  height: 26px;
+  justify-content: space-around;
+  margin-top: 10px;
+  width: 400px;
+  zoom: 120%;
+}
+
+.white {
+  background-color: #e6e6e6;
+}
+
+.purple {
+  background-color: #6c63ff;
+}
+
+.play {
+  left: 635px;
+  position: absolute;
+  top: 450px;
+}
