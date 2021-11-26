@@ -1,0 +1,53 @@
+.feedback-content {
+  background-color: #242424;
+  background-image: url('./pages/galaxy.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+  position: absolute;
+  width: 100vw;
+}
+
+.score-container {
+  align-items: center;
+  display: flex;
+  flex-basis: 500px;
+  flex-direction: column;
+  height: 192px;
+  justify-content: space-between;
+  left: 610px;
+  position: absolute;
+  top: 140px;
+}
+
+.score-container p {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.feedback-content button {
+  background-color: #6c63ff;
+  border: unset;
+  border-radius: 5px;
+  color: #e6e6e6;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 700;
+  height: 48px;
+  width: 200px;
+}
+
+.btn-feedback button {
+  margin: 10px;
+}
+
+.btn-feedback {
+  display: flex;
+  flex-direction: column;
+  left: 540px;
+  position: absolute;
+  top: 400px;
+}
