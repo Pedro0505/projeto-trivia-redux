@@ -42,9 +42,19 @@ main h3 {
 }
 
 .loading {
-  left: 120px;
+  animation: spin infinite 0.9s linear;
+  left: 100px;
   position: absolute;
   text-align: center;
+  top: 100px;
+  width: 100px;
+}
+
+@keyframes spin {
+
+  100% {
+    transform: rotateZ(360deg);
+  }
 }
 
 .answer-container {
@@ -61,6 +71,11 @@ main h3 {
   height: 75px;
   margin: 5px;
   width: 130px;
+}
+
+.answer-container button:disabled {
+  color: white;
+  cursor: default;
 }
 
 .button-next {

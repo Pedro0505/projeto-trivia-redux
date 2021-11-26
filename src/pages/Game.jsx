@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { Redirect } from 'react-router';
 import actions from '../actions';
 import MainHeader from '../components/MainHeader';
+import Loading from '../components/Loading';
 import '../Game.css';
 
 class Game extends React.Component {
@@ -61,7 +62,7 @@ class Game extends React.Component {
 
   handleAnswer({ target }) {
     clearInterval(this.decrementTime);
-    this.setState({ isClicked: true }, () => {
+    this.setState({ isClicked: true, isDisabled: true }, () => {
       const elementCorrect = document.querySelector('.correct').textContent;
       const state = JSON.parse(localStorage.getItem('state'));
       if (elementCorrect === target.textContent) {
@@ -116,7 +117,7 @@ class Game extends React.Component {
           <main>
             {
               (questions.length) ? this.renderQuestion(questions[index]) : (
-                <p className="loading">Loading...</p>)
+                <Loading />)
             }
           </main>
           <p>
