@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import '../Ranking.css';
-import play from './button-play.svg';
+import '../style/Ranking.css';
+import play from '../image/button-play.svg';
 
 class Ranking extends React.Component {
   render() {

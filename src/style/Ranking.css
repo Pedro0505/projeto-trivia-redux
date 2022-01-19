@@ -1,7 +1,7 @@
 .ranking-content {
   background-attachment: fixed;
   background-color: #242424;
-  background-image: url('./pages/ranking.svg');
+  background-image: url('../image/ranking.svg');
   background-position: 50% 100%;
   background-repeat: no-repeat;
   background-size: 1000px;

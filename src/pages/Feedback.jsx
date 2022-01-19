@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import '../Feedback.css';
-import feedback from './feedback.svg';
+import '../style/Feedback.css';
+import feedback from '../image/feedback.svg';
 
 class Feedback extends React.Component {
   constructor() {

@@ -1,7 +1,7 @@
 .main-content {
   align-items: center;
   background-color: #242424;
-  background-image: url('./pages/galaxy.svg');
+  background-image: url('../image/galaxy.svg');
   background-position: center;
   background-repeat: no-repeat;
   display: flex;

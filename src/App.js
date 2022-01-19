@@ -5,6 +5,7 @@ import Login from './pages/Login';
 import Ranking from './pages/Ranking';
 import Settings from './pages/Settings';
 import Feedback from './pages/Feedback';
+import './style/App.css';
 
 class App extends React.Component {
   render() {

@@ -3,8 +3,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import actions from '../actions';
-import celular from './celular.svg';
-import '../Login.css';
+import celular from '../image/celular.svg';
+import '../style/Login.css';
 
 class Login extends React.Component {
   constructor() {

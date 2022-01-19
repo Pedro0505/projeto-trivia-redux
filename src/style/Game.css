@@ -9,7 +9,7 @@
 }
 
 .tablet-div {
-  background-image: url('./pages/tablet.svg');
+  background-image: url('../image/tablet.svg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: 100%;

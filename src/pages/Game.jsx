@@ -5,7 +5,7 @@ import { Redirect } from 'react-router';
 import actions from '../actions';
 import MainHeader from '../components/MainHeader';
 import Loading from '../components/Loading';
-import '../Game.css';
+import '../style/Game.css';
 
 class Game extends React.Component {
   constructor() {
